@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #e5e5e5;
+  font-size: 18px;
+}
+
+.app {
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background-color: #fff;
+  box-shadow: 0 0 15px 2px #888888;
+  padding: 40px;
+  position: relative;
+}
