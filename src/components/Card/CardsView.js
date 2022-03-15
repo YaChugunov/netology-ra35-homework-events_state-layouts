@@ -1,25 +1,24 @@
 import React from 'react';
+
 // --- --- --- --- ---
 // Компонент вывода карточек сеткой
 //
 // Props (передаются из компонента Store):
 //
 //
+import ShopCard from './ShopCard';
+
 import './CardsView.css';
-//const USID = require("usid");
-//const usid = new USID();
-function CardsView(props) {
+export default function CardsView(props) {
   return (
-    <ul className="products-module">
-      {props.products.map((product) => {
+    <ul className="products-card">
+      {props.cards.map((card) => {
         return (
-          <li key={usid.rand()} className="products-list-item">
-            <ShopCard item={product} />
+          <li className="products-list-item">
+            <ShopCard card={card} />
           </li>
         );
       })}
     </ul>
   );
 }
-
-export default CardsView;

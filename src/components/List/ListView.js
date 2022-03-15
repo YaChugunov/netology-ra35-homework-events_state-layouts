@@ -6,19 +6,19 @@ import React from 'react';
 // Props (передаются из компонента Store в App.js):
 //
 //
-import './components/List/ListView.css';
-function ListView(props) {
+import ShopItem from './ShopItem';
+
+import './ListView.css';
+export default function ListView(props) {
   return (
     <ul className="products-list">
-      {props.products.map((product) => {
+      {props.items.map((item) => {
         return (
-          <li key={usid.rand()} className="products-list-item">
-            <ShopItem item={product} />
+          <li className="products-list-item">
+            <ShopItem item={item} />
           </li>
         );
       })}
     </ul>
   );
 }
-
-export default ListView;

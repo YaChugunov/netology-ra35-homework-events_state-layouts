@@ -8,19 +8,18 @@ import React, { useState } from 'react';
 // filters - весь набор фильтров
 // selected - активный фильтр
 //
-import './IconSwitch.css';
 export default function IconSwitch(props) {
   return (
     <div className="icon-menu__wrap">
-      <span className="material-icons" onClick={props.handleClick}>
+      <span className="material-icons" onClick={props.onSwitch}>
         {props.icon}
       </span>
     </div>
   )
 }
 
-import { ListView } from './src/components/List/ListView';
-import { CardsView } from './src/components/Card/CardsView';
+import ListView from './components/List/ListView';
+import CardsView from './components/Card/CardsView';
 
 // --- --- --- --- ---
 // Основной компонент
@@ -64,41 +63,34 @@ class Store extends React.Component {
           img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/layouts/img/5.jpg"
         }
       ],
-      menuIcon: "view_list",
+      controlIcon: "view_list",
       storeView: "list",
     };
   // Почему-то сначала без жесткой привязки к компоненту не работало, а потом заработало :)
-  this.handleClick = this.handleClick.bind(this);
+  // this.onSwitch = this.onSwitch.bind(this);
 }
-  // Первый рендер, чтобы вывести ВСЕ карточки
-  // UNSAFE сделал в соответствии с warning в консоли
   //
-  UNSAFE_componentWillMount() {
-
-  }
-  //
-  // Обработчик клика на кнопке фильтров
-  handleClick = (e) => {
-    let icon = e.target.textContent;
+  // Обработчик клика на иконке отображения магазина
+  onSwitch = (event) => {
+    let icon = event.target.textContent;
     let view;
     icon === "view_list" ? (icon = "view_module") : (icon = "view_list");
-    icon === "view_list" ? (view = "list") : (view = "module");
-    console.log("icon", icon);
-    this.setState({ menuIcon: icon, storeView: view });
+    icon === "view_list" ? (view = "list") : (view = "cards");
+    this.setState({ controlIcon: icon, storeView: view });
   }
   //
-  // Рендер компонента
+  // Рендер основного компонента
   render() {
     return (
-      <div className="app">
+      <div className={"container"}>
         <IconSwitch  
-          icon={this.state.menuIcon}
-          handleClick={this.handleClick}
+          icon={this.state.controlIcon}
+          onSwitch={this.onSwitch}
         />
         {this.state.storeView === "list" ? (
-          <ListView products={this.state.products} />
+          <CardsView cards={this.state.products} />
         ) : (
-          <CardsView products={this.state.products} />
+          <ListView items={this.state.products} />
         )}
       </div>
     );

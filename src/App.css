@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
-
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Open+Sans:wght@300;500&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -7,7 +7,6 @@
 }
 
 body {
-  background-color: #e5e5e5;
   font-size: 18px;
 }
 
@@ -20,4 +19,113 @@ body {
   box-shadow: 0 0 15px 2px #888888;
   padding: 40px;
   position: relative;
+}
+
+.toolbar {
+  list-style-type: none;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+button.toolbar-item {
+  display: block;
+  border: 1px solid grey;
+  padding: 6px 12px;
+  margin-right: 12px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+button.toolbar-item:hover {
+  background-color: #e5e5e5;
+}
+
+button.toolbar-item.selected {
+  background-color: #90cdf4;
+  cursor: default;
+}
+
+button.view-menu__btn {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+.icon-menu__wrap {
+  display: flex;
+  justify-content: flex-end;
+  margin: 40px;
+  margin-right: 0;
+  cursor: pointer;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+ul.products-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+li.products-list-item {
+  list-style-type: none;
+  margin-bottom: 5px;
+}
+
+.products-list-item-img__wrap {
+  width: 70px;
+  height: 70px;
+}
+
+.card-img__wrap {
+  width: 290px;
+  height: 250px;
+}
+
+img.card-image {
+  width: 100%;
+}
+
+header.card-container-header {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
+  text-align: center;
+}
+
+footer.card-footer {
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.2rem;
+}
+
+span.card-price {
+  color: rgba(199, 16, 16, 1);
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+button.add-to-cart__btn {
+  color: rgba(199, 16, 16, 1);
+  outline: 2px solid rgba(199, 16, 16, 1);
+  border-radius: 10px;
+  border: none;
+  background-color: white;
+  width: 120px;
+  height: 28px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+h3.card-title {
+  text-transform: uppercase;
 }
