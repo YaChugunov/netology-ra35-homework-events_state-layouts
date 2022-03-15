@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 
 // --- --- --- --- ---
-// Компонент вывода кнопок фильтрации
+// Компонент вывода иконки
 //
 // Props (передаются из компонента Store):
-// onSelectFilter - обработчик выбора фильтра
-// filters - весь набор фильтров
-// selected - активный фильтр
+// onSwitch - обработчик выбора вида
+// icon - иконка material icons
 //
 export default function IconSwitch(props) {
   return (
@@ -66,9 +65,9 @@ class Store extends React.Component {
       controlIcon: "view_list",
       storeView: "list",
     };
-  // Почему-то сначала без жесткой привязки к компоненту не работало, а потом заработало :)
+  // Жесткая привязка к компоненту
   // this.onSwitch = this.onSwitch.bind(this);
-}
+  }
   //
   // Обработчик клика на иконке отображения магазина
   onSwitch = (event) => {
