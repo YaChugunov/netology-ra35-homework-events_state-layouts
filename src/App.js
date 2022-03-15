@@ -12,7 +12,7 @@ import './IconSwitch.css';
 export default function IconSwitch(props) {
   return (
     <div className="icon-menu__wrap">
-      <span className="material-icons" onClick={props.onSwitchhandler}>
+      <span className="material-icons" onClick={props.handleClick}>
         {props.icon}
       </span>
     </div>
@@ -72,8 +72,7 @@ class Store extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      allFilters: ['All', 'Websites', 'Flayers', 'Business Cards'],
-      allproducts: [
+      products: [
         {
           name: "Nike Metcon 2",
           price: "130",
@@ -104,43 +103,44 @@ class Store extends React.Component {
           price: "150",
           color: "green",
           img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/layouts/img/5.jpg"
-        },
+        }
       ],
-      filteredproducts: [],
-      selectedFilter: 'All'
+      menuIcon: "view_list",
+      storeView: "list",
     };
   // Почему-то сначала без жесткой привязки к компоненту не работало, а потом заработало :)
   this.handleClick = this.handleClick.bind(this);
-  }
+}
   // Первый рендер, чтобы вывести ВСЕ карточки
   // UNSAFE сделал в соответствии с warning в консоли
   //
   UNSAFE_componentWillMount() {
-    const { allproducts } = this.state;
-    this.setState({ filteredproducts: allproducts });
+
   }
   //
   // Обработчик клика на кнопке фильтров
-  handleClick = (filter) => {
-    console.log('Фильтр: ' + filter);
-    const { allproducts, selectedFilter } = this.state;
-    if (filter !== 'All') {
-      const filteredproducts = allproducts.filter(
-        (product) => product.category === filter
-      );  
-      this.setState({ filteredproducts });
-      this.setState({ selectedFilter: filter });
-    }
-    else {
-      this.setState({ filteredproducts: allproducts });
-    }
+  handleClick = (e) => {
+    let icon = e.target.textContent;
+    let view;
+    icon === "view_list" ? (icon = "view_module") : (icon = "view_list");
+    icon === "view_list" ? (view = "list") : (view = "module");
+    console.log("icon", icon);
+    this.setState({ menuIcon: icon, storeView: view });
   }
   //
   // Рендер компонента
   render() {
     return (
       <div className="app">
-        <IconSwitch  />
+        <IconSwitch  
+          icon={this.state.menuIcon}
+          handleClick={this.handleClick}
+        />
+        {this.state.storeView === "list" ? (
+          <ListView products={this.state.products} />
+        ) : (
+          <CardsView products={this.state.products} />
+        )}
       </div>
     );
   }
