@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { ListView } from '/components/List/ListView';
+import { CardView } from '/components/List/ListView';
 
 // --- --- --- --- ---
 // Компонент вывода кнопок фильтрации
@@ -18,50 +20,6 @@ export default function IconSwitch(props) {
     </div>
   )
 }
-// --- --- --- --- ---
-// Компонент вывода карточек сеткой
-//
-// Props (передаются из компонента Store):
-//
-//
-import './CardsView.css';
-//const USID = require("usid");
-//const usid = new USID();
-export default function CardsView(props) {
-  return (
-    <ul className="products-module">
-      {props.products.map((product) => {
-        return (
-          <li key={usid.rand()} className="products-list-item">
-            <ShopCard item={product} />
-          </li>
-        );
-      })}
-    </ul>
-  );
-}
-// --- --- --- --- ---
-// Компонент вывода карточек списком
-//
-// Props (передаются из компонента Store):
-//
-//
-import './ListView.css';
-export default function ListView(props) {
-  return (
-    <ul className="products-list">
-      {props.products.map((product) => {
-        return (
-          <li key={usid.rand()} className="products-list-item">
-            <ShopItem item={product} />
-          </li>
-        );
-      })}
-    </ul>
-  );
-}
-
-
 
 // --- --- --- --- ---
 // Основной компонент
