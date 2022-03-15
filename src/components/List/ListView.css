@@ -29,7 +29,7 @@ ul.products-list .product-list-item:hover {
   font-family: 'Open Sans', sans-serif;
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 900px) {
   ul.products-list {
     column-count: 1;
   }
