@@ -7,7 +7,7 @@ import React from 'react';
 //
 //
 import './components/List/ListView.css';
-export default function ListView(props) {
+function ListView(props) {
   return (
     <ul className="products-list">
       {props.products.map((product) => {
@@ -20,3 +20,5 @@ export default function ListView(props) {
     </ul>
   );
 }
+
+export default ListView;

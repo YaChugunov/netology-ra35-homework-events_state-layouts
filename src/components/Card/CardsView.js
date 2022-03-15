@@ -8,7 +8,7 @@ import React from 'react';
 import './CardsView.css';
 //const USID = require("usid");
 //const usid = new USID();
-export default function CardsView(props) {
+function CardsView(props) {
   return (
     <ul className="products-module">
       {props.products.map((product) => {
@@ -21,3 +21,5 @@ export default function CardsView(props) {
     </ul>
   );
 }
+
+export default CardsView;

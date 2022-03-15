@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { ListView } from '/components/List/ListView';
-import { CardView } from '/components/List/ListView';
 
 // --- --- --- --- ---
 // Компонент вывода кнопок фильтрации
@@ -20,6 +18,9 @@ export default function IconSwitch(props) {
     </div>
   )
 }
+
+import { ListView } from '/components/List/ListView.js';
+import { CardsView } from '/components/Card/CardsView';
 
 // --- --- --- --- ---
 // Основной компонент
