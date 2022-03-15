@@ -19,8 +19,8 @@ export default function IconSwitch(props) {
   )
 }
 
-import { ListView } from '/components/List/ListView.js';
-import { CardsView } from '/components/Card/CardsView';
+import { ListView } from './src/components/List/ListView';
+import { CardsView } from './src/components/Card/CardsView';
 
 // --- --- --- --- ---
 // Основной компонент
